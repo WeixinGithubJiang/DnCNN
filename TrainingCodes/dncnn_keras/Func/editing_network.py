@@ -36,9 +36,11 @@ class NetworkEdit_base(object):
 			with open(model_path,"w") as json_file:
 				json_file.write(model_json)
 				json_file.close()
+			print('Save model architecture at %s ' % model_path)
 
 		if save_content == "WEIGHTS":
 			self.model.save_weights(model_path)
+			print('Save model weights at %s ' % model_path)
 
 		assert save_content in ["MODEL",  "ARCHITECTURE", "WEIGHTS"], "save_content needs to be MODEL or ARCHITECTURE or WEIGHTS."
 
